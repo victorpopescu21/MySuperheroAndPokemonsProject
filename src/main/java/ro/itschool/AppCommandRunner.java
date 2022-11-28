@@ -26,30 +26,43 @@ public class AppCommandRunner implements CommandLineRunner {
         for(int i = 0; i<50;i++){
             Pokemon pokemon1 = new Pokemon();
             pokemon1.setName(faker.pokemon().name());
-            pokemon1.setType("wateer");
+            pokemon1.setType(faker.weather().description());
+
 
             Pokemon pokemon2 = new Pokemon();
             pokemon2.setName(faker.pokemon().name());
-            pokemon2.setType("wateer");
+            pokemon2.setType(faker.weather().description());
 
             Pokemon pokemon3 = new Pokemon();
             pokemon3.setName(faker.pokemon().name());
-            pokemon3.setType("wateer");
+            pokemon3.setType(faker.weather().description());
 
             Superhero superhero = new Superhero();
             superhero.setName(faker.superhero().name());
             superhero.addPokemonsToList(pokemon1);
             superhero.addPokemonsToList(pokemon2);
             superhero.addPokemonsToList(pokemon3);
+            pokemon1.setSuperhero(superhero);
+            pokemon2.setSuperhero(superhero);
+            pokemon3.setSuperhero(superhero);
 
             superheroRepository.save(superhero);
         }
+        Pokemon pokemon4 =new Pokemon();
+        pokemon4.setName(faker.pokemon().name());
+        Pokemon pokemon5 =new Pokemon();
+        pokemon5.setName(faker.pokemon().name());
+
+        Superhero superhero2 =new Superhero();
+        superhero2.setName("Super gigolo man");
+        superhero2.addPokemonsToList(pokemon5);
+        superheroRepository.save(superhero2);
 
         //System.out.println(superheroRepository.findByNameEndingWith("man"));
-        //System.out.println(superheroRepository.findByNameStartingWith("super"));
+        //System.out.println(superheroRepository.findByNameStartingWith("Super"));
         //System.out.println(pokemonRepository.findByOrderByName());
         //System.out.println(superheroRepository.findByIdLessThanEqual(10));
-        //System.out.println(superheroRepository.findByIsNull()); - not working
+        System.out.println(superheroRepository.findByTypeIsNull()); //- not working
 
     }
 }
