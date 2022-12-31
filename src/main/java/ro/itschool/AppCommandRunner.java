@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 import ro.itschool.entity.Pokemon;
 import ro.itschool.entity.Superhero;
 import ro.itschool.repository.PokemonRepository;
+import ro.itschool.repository.SuperVillanRepository;
 import ro.itschool.repository.SuperheroRepository;
 @Slf4j
 @Component
@@ -18,6 +19,9 @@ public class AppCommandRunner implements CommandLineRunner {
 
     @Autowired
     private PokemonRepository pokemonRepository;
+
+    @Autowired
+    private SuperVillanRepository superVillanRepository;
 
     @Override
     public void run(String... args) {
