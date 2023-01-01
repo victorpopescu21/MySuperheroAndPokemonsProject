@@ -17,6 +17,8 @@ public class SuperVillan {
 
     private String type;
 
+    private  boolean isKiller;
+
     @ManyToOne
     @JoinColumn(name = "superhero_id")
     @ToString.Exclude
